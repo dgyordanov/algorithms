@@ -59,7 +59,7 @@ public class ShortestPath {
     private static String printPath(int index) {
         StringBuilder result = new StringBuilder();
 
-        if(pred[index] > 0) {
+        if(pred[index] >= 0) {
             printPath(pred[index]);
         }
 
@@ -69,7 +69,7 @@ public class ShortestPath {
     }
 
     public static void main(String[] args) {
-        int start = 1;
+        int start = 0;
         int end = 10;
         bfs(start);
 
