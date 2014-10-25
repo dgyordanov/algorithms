@@ -1,5 +1,7 @@
 package org.dido.algorithms.graph;
 
+import java.util.Arrays;
+
 public class FormCycle {
 
     private static int GRAPH_SIZE = 14;
@@ -24,17 +26,20 @@ public class FormCycle {
     private static boolean cycl = false;
     
     private static void dfs(int i, int parent) {
-        if (cycl) {
-            return;
-        }
         used[i] = true;
         for (int j = 0; j < GRAPH_SIZE; j++) {
-            if (used[j] && parent != j) {
-                System.out.println("Cycle found");
-                cycl = true;
-            } else {
-                if (parent != j) {
-                    dfs(j, i);
+            if (cycl) {
+                return;
+            }
+            if (graph[i][j] == 1) {
+                if (used[j] && parent != j) {
+                    System.out.println("Cycle found");
+                    cycl = true;
+                    return;
+                } else {
+                    if (parent != j) {
+                        dfs(j, i);
+                    }
                 }
             }
         }
