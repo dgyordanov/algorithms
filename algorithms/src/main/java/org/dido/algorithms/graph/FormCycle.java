@@ -1,7 +1,5 @@
 package org.dido.algorithms.graph;
 
-import java.util.Arrays;
-
 public class FormCycle {
 
     private static int GRAPH_SIZE = 14;
